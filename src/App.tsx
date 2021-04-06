@@ -1,7 +1,13 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import Routes from './routes';
+import GlobalStyles from './styles/global';
 
-const App: React.FC = () => <h1>ola 2</h1>;
+const App: React.FC = () => (
+  <>
+    <GlobalStyles />
+    <Routes />
+  </>
+);
 
 export default App;
