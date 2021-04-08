@@ -31,7 +31,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid black;
 `;
 export const InputContainer = styled.div`
   width: 100%;
@@ -61,9 +60,9 @@ export const NameInputContainer = styled.div`
 export const NameInput = styled.p`
   font-family: "Noto Sans SC", sans-serif;
   color: ${({ theme }) => theme.colors.black};
-  font-size: 20px;
+  font-size: 18px;
   @media (max-width: 1400px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -98,10 +97,10 @@ export const TitleInputContainer = styled.div`
 export const TitleForm = styled.p`
   font-family: "Noto Sans SC", sans-serif;
   color: ${({ theme }) => theme.colors.black};
-  font-size: 28px;
+  font-size: 24px;
 
   @media (max-width: 1400px) {
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 
@@ -111,7 +110,6 @@ export const SubmitContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 `;
 
 export const ButtonContainer = styled.div`

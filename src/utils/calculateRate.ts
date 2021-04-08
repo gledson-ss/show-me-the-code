@@ -1,13 +1,17 @@
+import { Map } from "typescript";
+
 class CalculateRate {
-  idOrigem: string;
+  private idOrigem: string;
 
-  idDestino: string;
+  private idDestino: string;
 
-  minutes: number;
+  private minutes: number;
 
-  hasPlan: boolean;
+  private hasPlan: boolean;
 
-  price: number;
+  private price: number;
+
+  private mp: any;
 
   constructor() {
     this.idOrigem = "";
@@ -46,8 +50,34 @@ class CalculateRate {
   }
 
   /**
-   * setPrice
+   * getPrice
    */
+
+  /**
+   * getId
+   */
+
+  public getPrice(): number {
+    this.mp = new Map();
+    if (this.idOrigem === "011") {
+      this.mp.set("016", 1.9);
+      this.mp.set("017", 1.7);
+      this.mp.set("018", 0.9);
+    }
+    if (this.idOrigem === "016") {
+      this.mp.set("011", 2.9);
+    }
+    if (this.idOrigem === "017") {
+      this.mp.set("011", 2.7);
+    }
+    if (this.idOrigem === "018") {
+      this.mp.set("011", 1.9);
+    }
+
+    const valueFinal = this.minutes * this.mp[this.idDestino];
+
+    return valueFinal;
+  }
 }
 
 export default CalculateRate;
