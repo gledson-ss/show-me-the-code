@@ -7,3 +7,10 @@ export const Container = styled.main`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.gray};
 `;
+
+export const InputContainer = styled.section`
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

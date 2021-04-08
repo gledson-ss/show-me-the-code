@@ -4,7 +4,6 @@ export const Container = styled.div`
   height: 25vh;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 `;
 
 export const DataContainer = styled.div`
@@ -12,7 +11,7 @@ export const DataContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 10vw;
+  padding: 0 9vw;
 `;
 
 export const TitleContainer = styled.div`
