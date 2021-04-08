@@ -1,5 +1,4 @@
 interface typeColor {
-  orange: string;
   blue: string;
   gray: string;
   darkGray: string;
@@ -13,12 +12,11 @@ interface colorTheme {
 
 const theme: colorTheme = {
   colors: {
-    orange: "#FC7C1C",
     blue: "#03BFFE",
-    gray: "#9e9ea7",
-    darkGray: "#eeeeee",
+    gray: " #f2f2f2",
+    darkGray: "#ddd",
     black: "#151515",
-    white: "#FFFFFF",
+    white: "#ffff",
   },
 };
 export type ThemeType = typeof theme;
