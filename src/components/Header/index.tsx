@@ -10,7 +10,7 @@ const Header: React.FC = () => (
     </St.DataContainer>
     <St.TitleContainer>
       <St.Title>
-        Seja bem vindo a
+        Seja bem vindo ao
       </St.Title>
       <St.LogoTitle>
         Fale Mais

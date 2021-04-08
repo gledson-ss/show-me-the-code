@@ -9,7 +9,7 @@ export const Container = styled.main`
 `;
 
 export const InputContainer = styled.section`
-  height: 60vh;
+  height: 66vh;
   display: flex;
   justify-content: center;
   align-items: center;
