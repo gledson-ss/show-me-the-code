@@ -1,7 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
-  border: 1px solid red;
   height: 15vh;
   display: flex;
   margin: 0 9vw;
@@ -22,6 +21,9 @@ export const Text = styled.p`
   font-family: "Noto Sans SC", sans-serif;
   color: ${({ theme }) => theme.colors.black};
   font-size: 22px;
+  @media (max-width: 1400px) {
+    font-size: 20px;
+  }
 `;
 
 export const TextLink = styled.p`
@@ -29,6 +31,9 @@ export const TextLink = styled.p`
   padding-left: 7px;
   color: ${({ theme }) => theme.colors.blue};
   font-size: 22px;
+  @media (max-width: 1400px) {
+    font-size: 20px;
+  }
 `;
 
 export const Link = styled.a`

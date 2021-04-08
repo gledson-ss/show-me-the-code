@@ -24,6 +24,9 @@ export const TitleContainer = styled.div`
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.black};
   font-size: 60px;
+  @media (max-width: 1400px) {
+    font-size: 50px;
+  }
 
   @font-face {
     font-family: Caveat;
@@ -40,5 +43,8 @@ export const LogoTitle = styled.p`
   }
   font-family: Caveat;
   font-size: 60px;
+  @media (max-width: 1400px) {
+    font-size: 52px;
+  }
   padding-left: 16px;
 `;
