@@ -9,6 +9,8 @@ class CalculateRate {
 
   private hasPlan: boolean;
 
+  private plan: number;
+
   private price: number;
 
   private mp: any;
@@ -19,6 +21,7 @@ class CalculateRate {
     this.minutes = 0;
     this.hasPlan = false;
     this.price = 0;
+    this.plan = NaN;
   }
 
   /**
@@ -49,6 +52,18 @@ class CalculateRate {
     this.hasPlan = has;
   }
 
+  public setPlan(plan: number): void {
+    this.plan = plan;
+  }
+
+  private setPrice(): void {
+    if (this.hasPlan) {
+      this.price = this.CalculeValuePlanFinal();
+    } else {
+      this.price = this.CalculePlanNormal();
+    }
+  }
+
   /**
    * getPrice
    */
@@ -56,6 +71,21 @@ class CalculateRate {
   /**
    * getId
    */
+
+  private CalculateDescValuePlan(): number {
+    if (this.minutes - this.plan <= 0) {
+      return 0;
+    }
+    return this.minutes - this.plan;
+  }
+
+  private CalculeValuePlanFinal(): number {
+    return this.mp.get(this.idDestino) * this.CalculateDescValuePlan() * 1.1;
+  }
+
+  private CalculePlanNormal(): number {
+    return this.minutes * this.mp.get(this.idDestino);
+  }
 
   public getPrice(): number {
     this.mp = new Map();
@@ -74,9 +104,9 @@ class CalculateRate {
       this.mp.set("011", 1.9);
     }
 
-    const valueFinal = this.minutes * this.mp[this.idDestino];
+    this.setPrice();
 
-    return valueFinal;
+    return parseFloat(this.price.toFixed(2));
   }
 }
 
