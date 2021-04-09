@@ -64,14 +64,6 @@ class CalculateRate {
     }
   }
 
-  /**
-   * getPrice
-   */
-
-  /**
-   * getId
-   */
-
   private CalculateDescValuePlan(): number {
     if (this.minutes - this.plan <= 0) {
       return 0;
