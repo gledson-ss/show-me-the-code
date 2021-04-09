@@ -148,3 +148,27 @@ export const ButtonReset = styled.button`
 export const ButtonText = styled.p`
   color: ${({ theme }) => theme.colors.white};
 `;
+
+export const PlansContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const DescriptionPlanContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const BoxOption = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const OptionPlansContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+`;
