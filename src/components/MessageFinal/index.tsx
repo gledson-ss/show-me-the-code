@@ -21,7 +21,9 @@ const MessageFinal: React.FC<props> = ({ price }: props) => (
       </St.Text>
     </St.PriceContainer>
     <St.ButtonContainer>
-      <St.Button>Voltar ao início</St.Button>
+      <St.Link href="/">
+        <St.Button>Voltar ao início</St.Button>
+      </St.Link>
     </St.ButtonContainer>
   </St.Container>
 );

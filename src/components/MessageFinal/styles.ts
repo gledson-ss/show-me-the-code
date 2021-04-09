@@ -57,3 +57,5 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
+
+export const Link = styled.a``;
