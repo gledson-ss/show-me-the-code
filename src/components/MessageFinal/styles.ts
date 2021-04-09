@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -58,4 +59,4 @@ export const Button = styled.button`
   }
 `;
 
-export const Link = styled.a``;
+export const LinkMessage = styled.a``;

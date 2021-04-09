@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
-import CalculateRate from '../../utils/calculateRate';
+import { usePrice } from '../../hooks/AppProvider';
 import MessageFinal from '../MessageFinal';
 import * as St from './styles';
 
 const FormBlock: React.FC = () => {
-  const [idOrigin, setIdOrigin] = useState<string>('');
-  const [idDest, setIdDest] = useState<string>('');
-  const [hasMinutes, setHasMinutes] = useState<boolean>(false);
-  const [minutes, setMinutes] = useState<number>(0);
-  const [hasPlan, setHasPlan] = useState<boolean>(false);
-  const [hasChecked, setHasChecked] = useState<boolean[]>([false, false]);
-  const [price, setPrice] = useState<number>(-1);
-  const [hasCheckPlanValue, setHasCheckPlanValue] = useState<boolean[]>([false, false, false]);
-  const [planValue, setPlanValue] = useState<number>(0);
-  const [screenFinal, setScreenFinal] = useState<boolean>(false);
-  const [priceConv, setPriceConv] = useState<string>('');
+  const { idOrigin, setIdOrigin } = usePrice();
+  const { idDest, setIdDest } = usePrice();
+  const { minutes, setMinutes } = usePrice();
+  const { setPlanValue } = usePrice();
+  const { setHasPlan } = usePrice();
+  const { setHasMinutes } = usePrice();
+  const { hasChecked, setHasChecked } = usePrice();
+  const { hasCheckPlanValue, setHasCheckPlanValue } = usePrice();
+  const Hist = useHistory();
+  const Location = useLocation();
+
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     const { name } = e.currentTarget;
     const valueInput = e.currentTarget.value;
@@ -38,12 +39,14 @@ const FormBlock: React.FC = () => {
 
   function handleCheckbox(e: React.ChangeEvent<HTMLInputElement>) {
     const { name } = e.currentTarget;
-
     if (name === 'sim') {
-      setHasChecked([!hasChecked[0], hasChecked[1]]);
+      setHasChecked([true, false]);
     }
     if (name === 'nao') {
-      setHasChecked([hasChecked[0], !hasChecked[1]]);
+      setHasChecked([false, true]);
+    }
+    if ((hasChecked[0] && hasChecked[1])) {
+      alert('não marque apenas uma opçao ou as 2 ao mesmo tempo!');
     }
   }
 
@@ -72,55 +75,25 @@ const FormBlock: React.FC = () => {
       alert('digite um valor válido ou um valor maior que 0.');
     } else if (!idOrigin.length || !idDest.length || !minutes) {
       alert('Não deixe campos vazios!');
-    } else if ((!hasChecked[0] && !hasChecked[1]) || (hasChecked[0] && hasChecked[1])) {
-      alert('não marque apenas uma opçao ou as 2 ao mesmo tempo!');
     } else if (minutes < 0) {
       alert('digite um valor maior que 0.');
+    } else {
+      Hist.push('/message');
     }
   }
 
   function handleSubmit() {
-    const priceConverter = new CalculateRate();
-
     if (hasChecked[0] && !hasChecked[1]) {
       setHasPlan(true);
     }
-
     handleError();
-
-    priceConverter.setIdOrigem(idOrigin);
-    priceConverter.setIdDestino(idDest);
-    priceConverter.setMinutes(minutes);
-    priceConverter.setHasPlan(hasChecked[0]);
-    priceConverter.setPlan(planValue);
-
-    if (Number.isNaN(price)) {
-      alert('DDD de origem e destino nao cadastrado ainda!');
-    }
-    setPrice(priceConverter.getPrice());
-
-    if (price >= 0) {
-      setScreenFinal(true);
-    }
-  }
-
-  function handlePriceConv(): string {
-    const str = String(price).split('.');
-
-    if (str.length === 1) {
-      return (`${str[0]}.00`);
-    } if (str[1].length === 1) {
-      return (`${str[0]}.${str[1]}0`);
-    }
-
-    return `${price}`;
   }
 
   return (
     <St.Container>
       <St.FormBox>
         {
-        screenFinal ? <MessageFinal price={handlePriceConv()} /> : (
+        Location.pathname === '/message' ? <MessageFinal /> : (
           <>
             <St.TitleInputContainer>
               <St.TitleForm>Calcule o valor da sua chamada</St.TitleForm>
@@ -160,11 +133,11 @@ const FormBlock: React.FC = () => {
                 <St.CheckBoxContainer>
                   <St.OptionName>Sim</St.OptionName>
                   <St.OptionContainer>
-                    <St.InputCheckBox type="checkbox" name="sim" onChange={handleCheckbox} />
+                    <St.InputCheckBox type="checkbox" name="sim" onChange={handleCheckbox} checked={hasChecked[0]} />
                   </St.OptionContainer>
                   <St.OptionName>Não</St.OptionName>
                   <St.OptionContainer>
-                    <St.InputCheckBox type="checkbox" name="nao" onChange={handleCheckbox} />
+                    <St.InputCheckBox type="checkbox" name="nao" onChange={handleCheckbox} checked={hasChecked[1]} />
                   </St.OptionContainer>
                 </St.CheckBoxContainer>
               </St.InputContainer>
