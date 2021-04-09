@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center">
-    Acesse: <a href="https://show-me-the-code-fale-mais.netlify.app/" target="_blank">Fale Mais Page<a/>
+    Acesse o Link em Deploy: <a href="https://show-me-the-code-fale-mais.netlify.app/" target="_blank">Fale Mais Page<a/>
 </h2>
 
 <!-- Badges -->
