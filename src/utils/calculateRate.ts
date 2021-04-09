@@ -1,4 +1,11 @@
-import { Map } from "typescript";
+interface propsCalculateRate {
+  setIdOrigem(id: string): void;
+  setIdDestino(id: string): void;
+  setMinutes(min: number): void;
+  setHasPlan(has: boolean): void;
+  setPlan(plan: number): void;
+  getPrice(): number;
+}
 
 class CalculateRate {
   private idOrigem: string;
@@ -102,4 +109,5 @@ class CalculateRate {
   }
 }
 
+export type typeCalculateRate = propsCalculateRate;
 export default CalculateRate;
