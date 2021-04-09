@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+<h1 align="center">
+  Fale Mais
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2 align="center">
+    Acesse: <a href="https://show-me-the-code-fale-mais.netlify.app/" target="_blank">Fale Mais Page<a/>
+</h2>
 
-## Available Scripts
+<!-- Badges -->
+<p align="center">
+    <a href="https://show-me-the-code-fale-mais.netlify.app/" target="_blank"><img src="https://img.shields.io/website?url=https%3A%2F%2Fmy-portfolio-mu-nine.vercel.app%2F"/><a/>
+    <img src="https://img.shields.io/badge/licence-MIT-agree"/>
+    <img src="https://img.shields.io/badge/challenge-WEB-red" />
+</p>
 
-In the project directory, you can run:
+## 📖 Description
 
-### `yarn start`
+A empresa de telefonia Telzir, especializada em chamadas de longa distância nacional, vai
+colocar um novo produto no mercado chamado FaleMais.
+Normalmente um cliente Telzir pode fazer uma chamada de uma cidade para outra pagando
+uma tarifa fixa por minuto, com o preço sendo pré-definido em uma lista com os códigos DDDs
+de origem e destino:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Origem    | Destino | $/min
+--------- | ------- | ------
+011       | 016     | 1.90
+016       | 011     | 2.90
+011       | 017     | 1.70
+017       | 011     | 2.70
+011       | 018     | 0.90
+018       | 011     | 1.90
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Com o novo produto FaleMais da Telzir o cliente adquire um plano e pode falar de graça até
+um determinado tempo (em minutos) e só paga os minutos excedentes. Os minutos
+excedentes tem um acréscimo de 10% sobre a tarifa normal do minuto. Os planos são
+FaleMais 30 (30 minutos), FaleMais 60 (60 minutos) e FaleMais 120 (120 minutos).
+A Telzir, preocupada com a transparência junto aos seus clientes, quer disponibilizar uma
+página na web onde o cliente pode calcular o valor da ligação. Ali, o cliente pode escolher os
+códigos das cidades de origem e destino, o tempo da ligação em minutos e escolher qual o
+plano FaleMais. O sistema deve mostrar dois valores: (1) o valor da ligação com o plano e (2)
+sem o plano. O custo inicial de aquisição do plano deve ser desconsiderado para este
+problema.
 
-### `yarn test`
+Origem  | Destino | Tempo |  Plano FaleMais |  Com FaleMais |  Sem FaleMais
+------- |-------  |-------|--------------  |--------------  |--------------
+011     |016      |20     |FaleMais 30     |$0,00           |$38,00
+011     |017      |80     |FaleMais 60     |$37,40          |$136,00
+018     |011      |200    |FaleMais 120    |$167,20         |$380,00
+018     |017      |100    |FaleMais 30     |-               |-
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Getting Started
 
-### `yarn build`
+1. Download the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - Using Git
+```shell
+  git clone https://github.com/gledson-ss/show-me-the-code.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Installation
+  - Using `yarn` 
+   ```shell
+   yarn
+   ```
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Execution
+  - Using `yarn`
 
-### `yarn eject`
+  ```shell
+   yarn dev
+  ```
+  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🧐 What's inside?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - React
+  - Typescript
+  - Styled-components 
+  - React Icons
+  - Eslint
+  - Rusky
+  - Cz-customizable
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🔒 License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is under the MIT license. See the file [LICENSE](LICENSE) for more details.
