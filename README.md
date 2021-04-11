@@ -68,7 +68,7 @@ Origem  | Destino | Tempo |  Plano FaleMais |  Com FaleMais |  Sem FaleMais
   - Using `yarn`
 
   ```shell
-   yarn dev
+   yarn start
   ```
   
 
